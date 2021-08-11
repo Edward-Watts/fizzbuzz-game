@@ -1,28 +1,78 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="container">
+        <Header title="FizzBuzz" :playerName="player" />
+        <Startgame v-if="!gameStarted" @play-game="playGame" />
+        <Playgame v-else />
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header'
+import Startgame from './components/Startgame'
+import Playgame from './components/Playgame'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    name: 'App',
+
+    components: {
+        Header,
+        Startgame,
+        Playgame
+    },
+
+    data: function() {
+
+      return {
+         gameStarted: false,
+         player: null
+      }
+    },
+
+    methods: {
+        playGame(event){
+          this.player = event.name
+          this.gameStarted = true
+        }
+    }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+
+.container {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  text-align: inherit;
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: inherit;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 </style>
