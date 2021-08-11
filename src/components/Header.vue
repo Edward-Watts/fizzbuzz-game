@@ -1,7 +1,7 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
-        <h2>Welcome {{playerName}}</h2>
+        <h2>{{ playerName }}</h2>
     </header>
 </template>
 
@@ -21,6 +21,10 @@ export default {
         justify-content: space-between;
         align-items: center;
         margin-bottom: 20px;
+    }
+
+    h2 {
+        color: black;
     }
 
 </style>

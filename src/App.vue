@@ -2,7 +2,7 @@
     <div class="container">
         <Header title="FizzBuzz" :playerName="player" />
         <Startgame v-if="!gameStarted" @play-game="playGame" />
-        <Playgame v-else />
+        <Playgame v-else @end-game="endGame" />
     </div>
 </template>
 
@@ -32,6 +32,13 @@ export default {
         playGame(event){
           this.player = event.name
           this.gameStarted = true
+        },
+
+        endGame() {
+          if(confirm('Are you sure')) {
+          this.gameStarted = false
+          this.player = null
+          }
         }
     }
 }
@@ -60,7 +67,7 @@ export default {
   color: #fff;
   border: none;
   padding: 10px 20px;
-  margin: 5px;
+  margin: 7px;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;

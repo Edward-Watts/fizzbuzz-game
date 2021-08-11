@@ -4,6 +4,7 @@
         <p>{{ number }}</p>
         <Button @click="nextNumber()" text='Next Number' color='green' />
         <Button @click="reset()" text='Reset' color='red' />
+        <Button @click="endGame()" text='End Game' color='black' />
     </div>
     
 </template>
@@ -39,6 +40,9 @@ export default {
       },
       reset(){
           this.number = 1
+      },
+      endGame() {
+          this.$emit('end-game')
       }
   }
 }

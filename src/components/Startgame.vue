@@ -29,7 +29,7 @@ export default {
             console.log(this.text)
             if(!this.text) {
                 alert('Please enter player name')
-            
+                return
             }
 
             const newPlayer = {
